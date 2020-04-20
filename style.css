@@ -1,0 +1,762 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans&display=swap');
+
+body {
+    font-family: 'Open Sans', sans-serif;
+    color: blueviolet;
+}
+.header{
+    height: 30vw;
+    position: relative;
+    background-image:linear-gradient( #B1B8CC,#ffffff);
+ 
+
+}
+.header .search {
+    height: 3vw;
+    width: 25vw;
+    position: absolute;
+    right: 1vw;
+    top: 1vw;
+    font-size: 1em;
+    
+
+}
+
+input[type="text"],
+textarea {
+  background-color: white;
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+  outline: none;
+}
+.header .logo{
+    margin: 1vw;
+
+}
+.header .lastupdated{
+    position: absolute;
+    left: 1vw;
+    bottom: 2vw;
+    font-size: 1em;
+    color:navy;
+}
+.header .big_current {
+    position: absolute;
+    right: 2vw;
+    bottom: 1vw;
+    font-size: 7em;
+}
+.location {
+    display: grid;
+    grid-template-rows: 1;
+    grid-template-areas: 
+    "citystate cityname zip zipname weathersource"
+}
+.location .citystate {
+    grid-area: "citystate";
+    color: navy; 
+}
+.location .cityname {
+    grid-area: "cityname";
+    color: navy;
+}
+.location .zip {
+    grid-area: "zip";
+    color: navy;
+
+}
+.location .zipname {
+    grid-area: "zipname";
+    color: navy;
+}
+.location .weathersource {
+    grid-area: "weathersource";
+    color: navy;
+}
+.current_bar {
+    display: grid;
+    grid-gap: .5vw;
+    align-content: center;
+    padding: .5vw;
+    background-color: #B1B8CC;
+    grid-template-areas: "current_hour current_min ampm day_of_week month date sunrise_icon sunrise_time sunset_icon sunset_time" 
+}
+.current_bar .current_hour {
+    grid-area: "current_hour";
+    font-style: oblique;
+    color:white;
+}
+.current_bar .current_min {
+    grid-area: "current_min";
+    font-style: oblique;
+    color:white;
+}
+.current_bar .ampm {
+    grid-area: "am/pm";
+    font-style: light;
+    color:white;
+}
+.current_bar .day_of_week {
+    grid-area: "day_of_week";
+    font-style: normal;
+    color:white;
+
+}
+.current_bar .month {
+    grid-area: "month";
+    font-style: oblique;
+    color:white;
+
+}
+.current_bar .date {
+    grid-area: "date";
+    font-style: oblique;
+    color:white;
+}
+.current_bar .sunrise_icon {
+    grid-area: "sunrise_icon";
+    font-style: oblique;
+    color:white;
+}
+.current_bar .sunrise_time {
+    grid-area: "sunrise_time";
+    font-style: oblique;
+    color:white;
+}
+.current_bar .sunset_icon {
+    grid-area: "sunset_icon";
+    font-style: oblique;
+    color:white;
+}
+.current_bar .sunset_time {
+    grid-area: "sunset_time";
+    font-style: oblique;
+    color:white;
+}
+.current_large_top {
+    height: 32vw;
+    background-color: #AA78B3;
+    position: relative;
+    padding: 1vw;
+}
+.current_large_top .large_icon {
+    position: absolute;
+    left: 5vw;
+    top: 1vw;
+}
+.current_large_top .description_short{
+    position: absolute;
+    left: 4vw;
+    bottom: 10vw;
+    font-size: 2em;
+    padding: 1vw;
+}
+.current_large_top .description_long{
+    left: 6vw;
+    bottom: 3vw;
+    font-size: .9em;
+    position: absolute;
+}
+.current_large_top .large_temp_high {
+    position: absolute;
+    right: 7vw;
+    top: 1vw;
+    font-size: 5em;
+}
+.current_large_top .temp_low {
+    position: absolute;
+    right: 1vw;
+    top: 8vw;
+    font-size: 2em;
+
+}
+.current_largeB {
+    background-color: #AA78B3;
+    display: grid;
+    grid-auto-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr 1fr;
+    grid-template-areas: 
+    "UV UV_INPUT precipitation precipitation_input feels_like feels_like_input"
+    "humidity humidity_input COR COR_input pressure pressure_input"
+    "windspeed windspeed_input type type_input visability visability_input"
+    "winddirection winddirection_input road road_input accumulation accumulation_input"
+
+}
+.current_largeB .UV{
+    margin: .5vw;
+    font-size: .8em;
+    
+}
+.current_largeB .UV_INPUT{
+    margin: .5vw;
+    font-size: .8em;
+    font-style: oblique;
+}
+.current_largeB .precipitation{
+    margin: .5vw;
+    font-size: small;
+}
+.current_largeB .precipitation_input{
+    margin: .5vw;
+    font-size: .8em;
+    font-style: oblique;
+}
+.current_largeB .feels_like{
+    margin: .5vw;
+    font-size: .8em;
+}
+.current_largeB .feels_like_input{
+    margin: .5vw;
+    font-size: .8em;
+    font-style: oblique;
+}
+.current_largeB .humidity{
+    margin: .5vw;
+    font-size: .8em;
+}
+.current_largeB .humidity_input{
+    margin: .5vw;
+    font-size: .8em;
+    font-style: oblique;
+}
+.current_largeB .COR{
+    margin: .5vw;
+    font-size: .8em;
+}
+.current_largeB .COR_input{
+    margin: .5vw;
+    font-size: .8em;
+    font-style: oblique;
+}
+.current_largeB .pressure{
+    margin: .5vw;
+    font-size: .8em;
+}
+.current_largeB .pressure_input{
+    margin: .5vw;
+    font-size: .8em;
+    font-style: oblique;
+}
+.current_largeB .windspeed{
+    margin: .5vw;
+    font-size: .8em;
+}
+.current_largeB .windspeed_input{
+    margin: .5vw;
+    font-size: .8em;
+    font-style: oblique;
+}
+.current_largeB .type{
+    margin: .5vw;
+    font-size: .8em;
+}
+.current_largeB .type_input{
+    margin: .5vw;
+    font-size: .8em;
+    font-style: oblique;
+}
+.current_largeB .visability{
+    margin: .5vw;
+    font-size: .8em;
+}
+.current_largeB .visability_input{
+    margin: .5vw;
+    font-size: .8em;
+    font-style: oblique;
+}
+.current_largeB .winddirection{
+    margin: .5vw;
+    font-size: .8em;
+}
+.current_largeB .winddirection_input{
+    margin: .5vw;
+    font-size: .8em;
+    font-style: oblique;
+}
+.current_largeB .road{
+    margin: .5vw;
+    font-size: .8em;
+}
+.current_largeB .road_input{
+    margin: .5vw;
+    font-size: .8em;
+    font-style: oblique;
+}
+.current_largeB .accumulation{
+    margin: .5vw;
+    font-size: .8em;
+}
+.current_largeB .accumulation_input{
+    margin: .5vw;
+    font-size: .8em;
+    font-style: oblique;
+}
+.hour1 {
+    background-color: #B8C2E3;
+    padding: 1vw;
+    margin: 1vw;
+    display: grid;
+    grid-template-areas: "hour_time hour_icon hour_description hour_temp rain_icon rain_percent"
+}
+.hour_time {
+    font-size: medium;
+}
+
+.hour_icon {
+    font-size: medium;
+    margin: auto;
+}
+
+.hour_description {
+    font-size: medium;
+}
+
+.hour_temp {
+    font-size: medium;
+}
+
+.rain_icon {
+    font-size: medium;
+}
+
+.rain_percent {
+    font-size: medium;
+}
+
+.hour2 {
+    background-color: #d3d3d3;
+    padding: 1vw;
+    margin: 1vw;
+    display: grid;
+    grid-template-areas: "hour_time hour_icon hour_description hour_temp rain_icon rain_percent"
+}
+
+.hour3 {
+    background-color: #B8C2E3;
+    padding: 1vw;
+    margin: 1vw;
+    display: grid;
+    grid-template-areas: "hour_time hour_icon hour_description hour_temp rain_icon rain_percent"
+}
+
+.hour4 {
+    background-color: #d3d3d3;
+    padding: 1vw;
+    margin: 1vw;
+    display: grid;
+    grid-template-areas: "hour_time hour_icon hour_description hour_temp rain_icon rain_percent"
+}
+.hour5 {
+    background-color: #B8C2E3;
+    padding: 1vw;
+    margin: 1vw;
+    display: grid;
+    grid-template-areas: "hour_time hour_icon hour_description hour_temp rain_icon rain_percent"
+}
+
+.hour6 {
+    background-color: #d3d3d3;
+    padding: 1vw;
+    margin: 1vw;
+    display: grid;
+    grid-template-areas: "hour_time hour_icon hour_description hour_temp rain_icon rain_percent"
+}
+
+.hour7 {
+    background-color: #B8C2E3;
+    padding: 1vw;
+    margin: 1vw;
+    display: grid;
+    grid-template-areas: "hour_time hour_icon hour_description hour_temp rain_icon rain_percent"
+}
+
+.hour8 {
+    background-color: #d3d3d3;
+    padding: 1vw;
+    margin: 1vw;
+    display: grid;
+    grid-template-areas: "hour_time hour_icon hour_description hour_temp rain_icon rain_percent"
+}
+
+.hour9 {
+    background-color: #B8C2E3;
+    padding: 1vw;
+    margin: 1vw;
+    display: grid;
+    grid-template-areas: "hour_time hour_icon hour_description hour_temp rain_icon rain_percent"
+}
+
+.hour10 {
+    background-color: #d3d3d3;
+    padding: 1vw;
+    margin: 1vw;
+    display: grid;
+    grid-template-areas: "hour_time hour_icon hour_description hour_temp rain_icon rain_percent"
+}
+
+.hour11 {
+    background-color: #B8C2E3;
+    padding: 1vw;
+    margin: 1vw;
+    display: grid;
+    grid-template-areas: "hour_time hour_icon hour_description hour_temp rain_icon rain_percent"
+}
+
+.hour12 {
+    background-color: #d3d3d3;
+    padding: 1vw;
+    margin: 1vw;
+    display: grid;
+    grid-template-areas: "hour_time hour_icon hour_description hour_temp rain_icon rain_percent"
+}
+
+.radar{
+    margin: auto;
+    margin-left: auto;
+  margin-right: auto;
+  
+}
+
+#map {
+    width: 200px;
+    height: 150px;
+}
+
+.alerts {
+    background-color: #B8C2E3;
+    text-align: center;
+    font-size: 2em;
+}
+.week {
+    display: grid;
+    grid-template-areas: 
+    "Monday Tuesday Wednesday"
+    "Thursday Friday Saturday"
+    "Sunday Monday2 Tuesday2"
+    "Wednesday2";
+    grid-gap: 4vw;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-auto-rows: 1fr 1fr 1fr 1fr;
+
+    margin: auto;
+    width: 50vw;
+    
+}
+.week .monday {
+    background-color: #AA78B3;
+    text-align: center;
+}
+.monday .temphigh {
+    font-size: x-large;
+    text-align: center;
+}
+.monday .temp-low {
+    text-align: right;
+    font-size: large;
+
+}
+.monday .moon_icon {
+    text-align: left;
+}
+.monday .percent {
+    text-align: right;
+}
+.week .tuesday {
+    background-color: #AA78B3;
+    padding: 1em;
+    text-align: center;
+}
+.tuesday .icon {
+    text-align: center; 
+
+}
+.tuesday .temphigh {
+    font-size: x-large;
+    text-align: center;
+}
+.tuesday .temp-low {
+    text-align: right;
+    font-size: large;
+
+}
+.tuesday .moon_icon {
+    text-align: left;
+}
+.tuesday .percent {
+    text-align: right;
+}
+.week .wednesday {
+    background-color: #AA78B3;
+    padding: 1em;
+    text-align: center;
+}
+.wednesday .icon {
+    text-align: center; 
+
+}
+.wednesday .temphigh {
+    font-size: x-large;
+    text-align: center;
+}
+.wednesday .temp-low {
+    text-align: right;
+    font-size: large;
+
+}
+.wednesday .moon_icon {
+    text-align: left;
+}
+.wednesday .percent {
+    text-align: right;
+
+}
+.week .thursday {
+    background-color: #AA78B3;
+    padding: 1em;
+    text-align: center;
+}
+.thursday .icon {
+    text-align: center; 
+}
+.thursday .temphigh {
+    font-size: x-large;
+    text-align: center;
+}
+.thursday .temp-low {
+    text-align: right;
+    font-size: large;
+
+}
+.thursday .moon_icon {
+    text-align: left;
+}
+.thursday .percent {
+    text-align: right;
+}
+.week .friday {
+    background-color: #AA78B3;
+    padding: 1em;
+    text-align: center;
+}
+.friday .icon {
+    text-align: center; 
+}
+.friday .temphigh {
+    font-size: x-large;
+    text-align: center;
+}
+.friday .temp-low {
+    text-align: right;
+    font-size: large;
+}
+
+.friday .moon_icon {
+    text-align: left;
+}
+.friday .percent {
+    text-align: right;
+}
+.week .saturday {
+    background-color: #AA78B3;
+    padding: 1em;
+    text-align: center;
+}
+.saturday .icon {
+    text-align: center; 
+}
+.saturday .temphigh {
+    font-size: x-large;
+    text-align: center;
+}
+.saturday .temp-low {
+    text-align: right;
+    font-size: large;
+
+}
+.saturday .moon_icon {
+    text-align: left;
+}
+.saturday .percent {
+    text-align: right;
+}
+.week .sunday {
+    background-color: #AA78B3;
+    padding: 1em;
+    text-align: center;
+}
+.sunday .icon {
+    text-align: center; 
+}
+.sunday .temphigh {
+    font-size: x-large;
+    text-align: center;
+}
+.sunday .temp-low {
+    text-align: right;
+    font-size: large;
+
+}
+.sunday .moon_icon {
+    text-align: left;
+}
+.sunday .percent {
+    text-align: right;
+}
+
+.week .monday2 {
+    background-color: #AA78B3;
+    padding: 1em;
+    text-align: center;
+}
+.monday2 .icon {
+    text-align: center; 
+}
+.monday2 .temphigh {
+    font-size: x-large;
+    text-align: center;
+}
+.monday2 .temp-low {
+    text-align: right;
+    font-size: large;
+
+}
+.monday2 .moon_icon {
+    text-align: left;
+}
+.monday2 .percent {
+    text-align: right;
+}
+.week .tuesday2 {
+    background-color: #AA78B3;
+    padding: 1em;
+    text-align: center;
+}
+.tuesday2 .icon {
+    text-align: center; 
+}
+.tuesday2 .temphigh {
+    font-size: x-large;
+    text-align: center;
+}
+.tuesday2 .temp-low {
+    text-align: right;
+    font-size: large;
+
+}
+.tuesday2 .moon_icon {
+    text-align: left;
+}
+.tuesday2 .percent {
+    text-align: right;
+}
+.footer{
+    height: 10vw;
+    margin: 1vw;
+    background-color: #B8C2E3;
+    position: relative;
+}
+.footer .copyright {
+    text-align: left;
+    position: absolute;
+    left: 4vw;
+    top: 4vw;
+}
+
+.icon {
+    width: 254px;
+    height: 254px;
+    margin: auto;
+    align-content: center;
+    max-width: 100%;
+    max-height: 100%;
+}
+
+.smicon {
+    width: 45px;
+    height: 45px;
+    margin: auto;
+    max-width: 100%;
+    max-height: 100%;
+}
+
+.icon_01d, .icon_01n{
+    background-image: url("/img/01d.png");
+    background-repeat: no-repeat; 
+    background-position: center;
+    background-size: cover;
+}
+
+.icon_02d, .icon_02n{
+    background-image: url("/img/02d.png");
+    background-repeat: no-repeat; 
+    background-position: center;
+    background-size: cover;
+}
+
+.icon_03d, .icon_03n{
+    background-image: url("/img/03d.png");   
+    background-repeat: no-repeat; 
+    background-position: center;
+    background-size: cover;
+}
+
+.icon_04d, .icon_04n{
+    background-image: url("/img/04d.png"); 
+    background-repeat: no-repeat; 
+    background-position: center;
+    background-size: cover;
+}
+
+.icon_09d, .icon_09n{
+    background-image: url("/img/09d.png");   
+    background-repeat: no-repeat; 
+    background-position: center;
+    background-size: cover;
+}
+
+.icon_10d, .icon_10n{
+    background-image: url("/img/10d.png");  
+    background-repeat: no-repeat; 
+    background-position: center;
+    background-size: cover;
+}
+
+.icon_11d, .icon_11n{
+    background-image: url("/img/11d.png");   
+    background-repeat: no-repeat; 
+    background-position: center;
+    background-size: cover;
+}
+
+.icon_13d, .icon_13n{
+    background-image: url("/img/13d.png");  
+    background-repeat: no-repeat; 
+    background-position: center;
+    background-size: cover;
+}
+
+.icon_50d, .icon_50n{
+    background-image: url("/img/50d.png");  
+    background-repeat: no-repeat; 
+    background-position: center;
+    background-size: cover;
+}
+
+@media screen and (max-width: 1024px) and (min-width: 768px) {
+    body {
+      background-color: white;
+    }
+  
+   
+}
+  
+  /* Phone Styles */
+  @media screen and (max-width: 768px) {
+    body {
+      background-color: white;
+    }
+
+}

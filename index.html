@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="keys.js"></script>
+    <script src="https://unpkg.com/@warnick/forecast-js/js/forecast.min.js" defer></script>
+    <link rel="stylesheet" href="https://unpkg.com/@warnick/forecast-js/css/forecast.css">
+    <link rel="stylesheet" href="style.css">
+    <title>Weather Dashboard</title>
+</head>
+<body>
+    <div class="results" id="app">
+        <div class="header">
+            <div class="logo"><img src="https://cdn.freebiesupply.com/images/large/2x/weather-logo-transparent.png" height="70vw" width="100vw"/></div>
+            <div class="search">
+                <input type="text" name="fname" placeholder="Enter
+                Zip Code" v-on:input="zip_trigger" id="zip"/>
+                </div> 
+                <div class="lastupdated"></div>
+                <div class="big_current">{{current.temp.current}}</div>
+        </div>
+        <div class="location">
+            <div class="citystate">City/State</div>
+            <div class="cityname">{{location.name}}</div>
+            <div class="zipzip">Zip</div>
+            <div class="zip_code">{{location.zip}}</div>
+            <div class="weathersource">WeatherSource</div>
+        </div>
+        <div class="current_bar" >
+                <p v-bind:class="time.day">{{time.day}}</p>
+            <div class="current_hour">{{time.hour_12}}:{{time.minute}}:{{time.seconds}}</div>
+            <div class="date">{{time.date}}</div>
+            <div class="sunrise_icon">x</div>
+            <div class="sunrise_time">{{current.sunrise}}</div>
+            <div class="sunset_icon">x</div>
+            <div class="sunset_time">{{current.sunset}}</div>
+        </div>
+        <div class="current_large_top">
+            <div class="large_icon">
+                <div class="icon" v-bind:class="'icon_'+forecast[0].description_icon"></div>
+            </div>
+            <div class="description_short">{{current.description_main}}</div>
+            <div class="description_long">{{current.description_long}}</div>
+            <div class="large_temp_high">{{current.temp.current}}</div>
+            <div class="temp_low">{{current.temp.low}}</div> 
+        </div>
+        <div class="current_largeB">
+            <div class="UV">UV</div>
+            <div class="UV_INPUT">{{current.uv}}</div>
+            <div class="humidity">Humidity</div>
+            <div class="humidity_input">{{current.humidity}}</div>
+            <div class="windspeed">Wind Speed</div>
+            <div class="windspeed_input">{{current.wind.speed}}</div>
+            <div class="precipitation">Precipitation</div>
+            <div class="precipitation_input">{{current.rain}}</div>
+            <div class="feels_like">Feels like</div>
+            <div class="feels_like_input">{{current.temp.feelslike}}</div>
+            <div class="pressure">Pressure</div>
+            <div class="pressure_input">{{current.pressure}}</div>
+        </div>
+        <div class="hourly">
+            <div class="hour1">
+                <div class="hour_time">{{hourly[1].time}}</div>
+                <div class="hour_icon">
+                    <div class="smicon" v-bind:class="'icon_'+forecast[0].description_icon"></div>
+                </div>
+                <div class="hour_description">{{hourly[0].shortForecast}}</div>
+                <div class="hour_temp">{{hourly[1].temperature}}</div>
+                <div class="rain_icon">x</div>
+                <div class="Rain_percent">0%</div>
+            </div>
+            <div class="hour2">  
+                <div class="hour_time">{{hourly[2].time}}</div>
+                <div class="hour_icon">
+                    <div class="smicon" v-bind:class="'icon_'+forecast[0].description_icon"></div>
+                </div>
+                <div class="hour_description">{{hourly[1].shortForecast}}</div>
+                <div class="hour_temp">{{hourly[2].temperature}}</div>
+                <div class="rain_icon">x</div>
+                <div class="Rain_percent">0%</div></div> 
+    
+            <div class="hour3">
+                <div class="hour_time">{{hourly[3].time}}</div>
+                <div class="hour_icon">
+                    <div class="smicon" v-bind:class="'icon_'+forecast[0].description_icon"></div>
+                </div>
+                <div class="hour_description">{{hourly[2].shortForecast}}</div>
+                <div class="hour_temp">{{hourly[3].temperature}}</div>
+                <div class="rain_icon">x</div>
+                <div class="Rain_percent">0%</div>
+            </div>
+            <div class="hour4">
+                <div class="hour_time">{{hourly[4].time}}</div>
+                <div class="hour_icon">
+                    <div class="smicon" v-bind:class="'icon_'+forecast[0].description_icon"></div>
+                </div>
+                <div class="hour_description">{{hourly[3].shortForecast}}</div>
+                <div class="hour_temp">{{hourly[4].temperature}}</div>
+                <div class="rain_icon">x</div>
+                <div class="Rain_percent">0%</div>
+            </div>
+            <div class="hour5">
+                <div class="hour_time">{{hourly[5].time}}</div>
+                <div class="hour_icon">
+                    <div class="smicon" v-bind:class="'icon_'+forecast[0].description_icon"></div>
+                </div>
+                <div class="hour_description">{{hourly[4].shortForecast}}</div>
+                <div class="hour_temp">{{hourly[5].temperature}}</div>
+                <div class="rain_icon">x</div>
+                <div class="Rain_percent">0%</div>
+            </div>
+            <div class="hour6">
+                <div class="hour_time">{{hourly[6].time}}</div>
+                <div class="hour_icon">
+                    <div class="smicon" v-bind:class="'icon_'+forecast[0].description_icon"></div>
+                </div>
+                <div class="hour_description">{{hourly[5].shortForecast}}</div>
+                <div class="hour_temp">{{hourly[6].temperature}}</div>
+                <div class="rain_icon">x</div>
+                <div class="Rain_percent">0%</div>
+            </div>
+            <div class="hour7">
+                <div class="hour_time">{{hourly[7].time}}</div>
+                <div class="hour_icon">
+                    <div class="smicon" v-bind:class="'icon_'+forecast[0].description_icon"></div>
+                </div>
+                <div class="hour_description">{{hourly[6].shortForecast}}</div>
+                <div class="hour_temp">{{hourly[7].temperature}}</div>
+                <div class="rain_icon">x</div>
+                <div class="Rain_percent">0%</div>
+            </div>
+            <div class="hour8">
+                <div class="hour_time">{{hourly[8].time}}</div>
+                <div class="hour_icon">
+                    <div class="smicon" v-bind:class="'icon_'+forecast[0].description_icon"></div>
+                </div>
+                <div class="hour_description">{{hourly[7].shortForecast}}</div>
+                <div class="hour_temp">{{hourly[8].temperature}}</div>
+                <div class="rain_icon">x</div>
+                <div class="Rain_percent">0%</div>
+            </div>
+            <div class="hour9">
+                <div class="hour_time">{{hourly[9].time}}</div>
+                <div class="hour_icon">
+                    <div class="smicon" v-bind:class="'icon_'+forecast[0].description_icon"></div>
+                </div>
+                <div class="hour_description">{{hourly[8].shortForecast}}</div>
+                <div class="hour_temp">{{hourly[9].temperature}}</div>
+                <div class="rain_icon">x</div>
+                <div class="Rain_percent">0%</div>
+                </div>
+            <div class="hour10">
+                <div class="hour_time">{{hourly[10].time}}</div>
+                <div class="hour_icon">
+                    <div class="smicon" v-bind:class="'icon_'+forecast[0].description_icon"></div>
+                </div>
+                <div class="hour_description">{{hourly[9].shortForecast}}</div>
+                <div class="hour_temp">{{hourly[10].temperature}}</div>
+                <div class="rain_icon">x</div>
+                <div class="Rain_percent">0%</div>
+            </div>
+            <div class="hour11">
+                <div class="hour_time">{{hourly[11].time}}</div>
+                <div class="hour_icon">
+                    <div class="smicon" v-bind:class="'icon_'+forecast[0].description_icon"></div>
+                </div>
+                <div class="hour_description">{{hourly[10].shortForecast}}</div>
+                <div class="hour_temp">{{hourly[11].temperature}}</div>
+                <div class="rain_icon">x</div>
+                <div class="Rain_percent">0%</div>
+            </div>
+            <div class="hour12">
+                <div class="hour_time">{{hourly[12].time}}</div>
+                <div class="hour_icon">
+                    <div class="smicon" v-bind:class="'icon_'+forecast[0].description_icon"></div>
+                </div>
+                <div class="hour_description">{{hourly[11].shortForecast}}</div>
+                <div class="hour_temp">{{hourly[12].temperature}}</div>
+                <div class="rain_icon">x</div>
+                <div class="Rain_percent">0%</div>
+            </div>
+        </div>
+        <div id="map"></div>
+        <div class="alerts">UPDATES ON COVID-19 <br>
+            CLICK HERE
+        </div>
+        <div class="week">
+            <div class="monday">{{forecast[1].weekday}}
+                <div class="icon">
+                    <div class="icon" v-bind:class="'icon_'+forecast[1].description_icon"></div>
+                </div>
+                <div class="temphigh">{{forecast[1].max_temp}}</div>
+                <div class="temp-low">/{{forecast[1].min_temp}}</div>
+                <div class="moon_icon">{{forecast[1].moon}}</div>
+                <div class="percent">{{forecast[1].precip}}</div>
+            </div>
+            <div class="tuesday">{{forecast[2].weekday}}
+                <div class="icon">
+                    <div class="icon" v-bind:class="'icon_'+forecast[2].description_icon"></div>
+                </div>
+                <div class="temphigh">{{forecast[2].max_temp}}</div>
+                <div class="temp-low">/{{forecast[2].min_temp}}</div>
+                <div class="moon_icon">{{forecast[2].moon}}</div>
+                <div class="percent">{{forecast[2].precip}}</div>
+            </div>
+            <div class="wednesday">{{forecast[3].weekday}}
+                <div class="icon">
+                    <div class="icon" v-bind:class="'icon_'+forecast[3].description_icon"></div>
+                </div>
+                <div class="temphigh">{{forecast[3].max_temp}}</div>
+                <div class="temp-low">/{{forecast[3].min_temp}}</div>
+                <div class="moon_icon">{{forecast[3].moon}}</div>
+                <div class="percent">{{forecast[3].precip}}</div>
+            </div>
+            <div class="thursday">{{forecast[4].weekday}}
+                <div class="icon">
+                    <div class="icon" v-bind:class="'icon_'+forecast[4].description_icon"></div>
+                </div>
+                <div class="temphigh">{{forecast[4].max_temp}}</div>
+                <div class="temp-low">/{{forecast[4].min_temp}}</div>
+                <div class="moon_icon">{{forecast[4].moon}}</div>
+                <div class="percent">{{forecast[4].precip}}</div>
+            </div>
+            <div class="friday">{{forecast[5].weekday}}
+                <div class="icon">
+                    <div class="icon" v-bind:class="'icon_'+forecast[5].description_icon"></div>
+                </div>
+                <div class="temphigh">{{forecast[5].max_temp}}</div>
+                <div class="temp-low">/{{forecast[5].min_temp}}</div>
+                <div class="moon_icon">{{forecast[5].moon}}</div>
+                <div class="percent">{{forecast[5].precip}}</div>
+            </div>
+            <div class="saturday">{{forecast[6].weekday}}
+                <div class="icon">
+                    <div class="icon" v-bind:class="'icon_'+forecast[6].description_icon"></div>
+                </div>
+                <div class="temphigh">{{forecast[6].max_temp}}</div>
+                <div class="temp-low">/{{forecast[6].min_temp}}</div>
+                <div class="moon_icon">{{forecast[6].moon}}</div>
+                <div class="percent">{{forecast[6].precip}}</div>
+            </div>
+            <div class="sunday">{{forecast[7].weekday}}
+                <div class="icon">
+                    <div class="icon" v-bind:class="'icon_'+forecast[7].description_icon"></div>
+                </div>
+                <div class="temphigh">{{forecast[7].max_temp}}</div>
+                <div class="temp-low">/{{forecast[7].min_temp}}</div>
+                <div class="moon_icon">{{forecast[7].moon}}</div>
+                <div class="percent">{{forecast[7].precip}}</div>
+                </div>
+            <div class="monday2">{{forecast[8].weekday}}
+                <div class="icon">
+                    <div class="icon" v-bind:class="'icon_'+forecast[8].description_icon"></div>
+                </div>
+                <div class="temphigh">{{forecast[8].max_temp}}</div>
+                <div class="temp-low">/{{forecast[8].min_temp}}</div>
+                <div class="moon_icon">{{forecast[8].moon}}</div>
+                <div class="percent">{{forecast[8].precip}}</div>
+            </div>
+            <div class="tuesday2">{{forecast[9].weekday}}
+                <div class="icon">
+                    <div class="icon" v-bind:class="'icon_'+forecast[9].description_icon"></div>
+                </div>
+                <div class="temphigh">{{forecast[9].max_temp}}</div>
+                <div class="temp-low">/{{forecast[9].min_temp}}</div>
+                <div class="moon_icon">{{forecast[9].moon}}</div>
+                <div class="percent">{{forecast[9].precip}}</div>
+            </div>
+        </div>
+        <div class="footer">
+            <div class="copyright">Copyright 2020</div>
+        </div>
+        <div class="icon" v-bind:class="'icon_'+forecast[5].description_icon"></div>
+    </div>
+</body>
+</html>
